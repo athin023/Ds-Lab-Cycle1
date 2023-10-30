@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int stack[100],choice,n,top,x,i,s,p;
+int stack[100],choice,n,top,x,i,s,flag;
 void push(void);
 void pop(void);
 void display(void);
@@ -41,6 +41,7 @@ search();
 case 5:
 {
 printf("\n EXIT POINT");
+break;
 }
 default:
 {
@@ -48,7 +49,7 @@ printf("\n Enter a valid choice\n");
 }
 }
 }
-while(choice!=4);
+while(choice!=5);
 return 0;
 }
 
@@ -87,7 +88,7 @@ if (top>=0)
 printf("\nelemnts in the stack are\n");
 for(i=top;i>=0;i--)
 {
-printf("%d",stack[top]);
+printf("%d\n",stack[i]);
 }
 printf("\nenter next choice");
 }
@@ -99,30 +100,27 @@ printf("\nstack is empty");
 
 void search()
 {
-if (top<=-1)
-{
-printf("\nstack is underflow\n");
-}
-else
-printf("\nenter element to be serarhed");
+printf("\n\t Enter the element to be searched\n\t");
 scanf("%d",&s);
 for(i=top;i>=0;i--)
+if(stack[i]==s)
 {
-if(stack[top]==s)
-p++;
-{
-if(p==1)
-{
-printf("\nelement found");
+flag=1;
+break;
 }
 else
 {
-printf("\nelement not found");
+flag=0;
+}
+if(flag==1)
+{
+printf("searched element found");
+}
+else
+{
+printf("searched element not found");
 }
 }
-}
-}
-
 
 
 
