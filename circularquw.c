@@ -3,6 +3,7 @@
 void insertq(int[], int);
 void deleteq(int[]);
 void display(int[]);
+void search(int[]);
 int front=-1;
 int rear=-1;
 int main()
@@ -11,7 +12,7 @@ int main()
     int queue[size];
     do
     {
-        printf("\n Circular Queue:\n1. Insert \n2. Delete\n3. Display\n0. Exit");
+        printf("\n Circular Queue:\n1. Insert \n2. Delete\n3. Display\n4. Search\n0. Exit");
         printf("\nEnter Choice? : ");
         scanf("%d", &ch);
         switch (ch)
@@ -26,6 +27,9 @@ int main()
                 break;
             case 3:
                 display(queue);
+                break;
+            case 4:
+                search(queue);
                 break;
         }
     }while (ch != 0);
@@ -91,3 +95,34 @@ void deleteq(int queue[])
         front++;
     }
 }
+
+
+void search(int queue[])
+{
+  int key,f,i;
+
+   printf("Enter the element to be Searched ");
+   scanf("%d", &key);
+   for (i=front; i<=rear; i++)
+   
+     if(queue[i]==key)
+    {
+    f=1;
+    break;
+    }
+   else
+    {
+     f=0;
+    }
+
+    if(f==1)
+   {
+     printf("element found");
+   }
+   else
+
+   {
+     printf("element not found");
+   }
+}
+
